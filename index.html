@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de gastos</title>
+    <!--STYLE CSS-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--STYLE CSS ICONS-->
+    <link rel="stylesheet" href="./assets/icons/style.css">
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="./assets/js/script.js" defer></script>
+</head>
+<body>
+    
+    <main>
+        <div class="container">
+            <section id="painel">
+                <h1 class="color-dark">Controle de gastos - CalDebts</h1>
+                <div class="cards">
+                    <div class="card">
+                        <small class="color-green">Ganhos</small>
+                        <span class="color-dark" id="ganhos">R$ 0,00</span>
+                    </div> <!--CARD-->
+
+                    <div class="card">
+                        <small class="color-red">Despesas</small>
+                        <span class="color-dark" id="despesas">R$ 0,00</span>
+                    </div> <!--CARD-->
+
+                    <div class="card">
+                        <small class="color-dark">Total</small>
+                        <span class="color-dark" id="total">R$ 0,00</span>
+                    </div> <!--CARD-->
+                </div><!--CARDS-->
+            </section> <!--PAINEL-->
+
+            <hr>
+
+            <section id="list">
+                <h2 class="color-dark">Minhas transações</h2>
+
+                <ul class="list-items">
+                     
+                </ul> <!--LIST-ITEM-->
+            </section> <!--LIST-->
+
+            <hr>
+
+            <section id="transaction">
+                <h2 class="color-dark">Adicionar nova transação</h2>
+                <form action="">
+                    <div>
+                        <label for="item" class="sr-only">Nome do item</label>
+                        <input type="text" name="item-name" class="item color-dark" id="item-name" placeholder="O nome da transação" autocomplete="off" required>
+                    </div>
+
+                    <div>
+                        <label for="item" class="sr-only">Adicionar item</label>
+                        <input type="number" name="item" class="item color-dark" id="item-value" placeholder="Para ganhos, valor positivo, para despesas, número negativo" autocomplete="off" required>
+                    </div>
+
+
+                    <div class="buttons">
+                        <button type="reset" id="btnReset">Limpar campos</button>
+                        <button id="btnSend">Adicionar</button>
+                    </div>
+                </form>
+            </section> <!--TRANSACTION-->
+        </div>
+    </main>
+
+    <hr class="container">
+
+    <footer>
+        <div class="container">
+            <p>Feito por <a href="https://www.instagram.com/eujohn___/" target="_blank" rel="external">John Silva</a></p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>
