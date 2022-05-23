@@ -1,11 +1,37 @@
 // Variáveis das transações
 const itemValue = document.querySelector('#item-value')
 const itemName = document.querySelector('#item-name')
+const itemDate = document.querySelector('#item-date')
 
-// Função que criará os cards de transações
 const ulOuput = document.querySelector('.list-items')
 let transactions = JSON.parse(localStorage.getItem('transactions')) || []
 let values = JSON.parse(localStorage.getItem('values')) || []
+let data = JSON.parse(localStorage.getItem('date')) || []
+
+const profit = document.querySelector('#ganhos')
+const expense = document.querySelector('#despesas')
+const total = document.querySelector('#total')
+
+// Função que recebe o ano e o mês e retorno o último dia do mês especificado
+function retUltimoDia(year, month){
+    var ultimoDia = (new Date(year, month, 0)).getDate();
+    return ultimoDia;
+}
+
+function date() {
+    const date = new Date()
+    const ano = date.getFullYear()
+    // se o dia for menor que 10 irei acrescentar o 0 na frente do número
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+    // se o mÊs for menor que 10 irei acrescentar o 0 na frente do número e irei somar mais, pois os meses são indexados, portanto começam a partir do número 0
+    const month = date.getMonth() < 10 ? `0${date.getMonth() + 1}` : date.getMonth()
+    const maxDate = `${ano}-${month}-${retUltimoDia(ano, month)}`
+
+    const attrMinDate = itemDate.setAttribute('min', `${ano}-${month}-01`)
+    const attrMaxDate = itemDate.setAttribute('max', maxDate)
+    const attrValue = itemDate.setAttribute('value', `${ano}-${month}-${day}`)
+}
+date()
 
 // Função que desenvolve a lista com os nomes e os valores das transações
 function atualizaTela() {
@@ -50,11 +76,6 @@ function atualizaTela() {
     })
 }
 atualizaTela() // Sempre que a página recarrega, a função é ativada
-
-// Função que atualiza os cards com os valores
-const profit = document.querySelector('#ganhos')
-const expense = document.querySelector('#despesas')
-const total = document.querySelector('#total')
 
 // Função que efetua os cálculos e atualiza as informações nos cards superiores da aplicação
 function cardsValues() {
@@ -102,6 +123,7 @@ function saveStorage() {
     // Definindo uma chave para o array transactions, transformei todo o array em String JSON.(Pois o local storage só armazena o tipo de dado string)
     localStorage.setItem('transactions', JSON.stringify(transactions))
     localStorage.setItem('values', JSON.stringify(values))
+    localStorage.setItem('date', JSON.stringify(data))
 }
 
 const buttonSend = document.querySelector('#btnSend')
@@ -122,5 +144,6 @@ buttonSend.addEventListener('click', (event)=> {
         // Ao atualizar a tela com os dados, os inputs são limpos
         itemName.value = ''
         itemValue.value = ''
+        itemDate.value = ''
     }
 })

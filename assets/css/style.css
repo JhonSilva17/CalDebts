@@ -176,6 +176,10 @@ h2 {
     margin: 2rem 0;
 }
 
+#list .list-items .item .date {
+    font-size: 1.2rem;
+}
+
 #list .list-items .alert {
     font-size: 1.6rem;
     color: var(--color-dark);

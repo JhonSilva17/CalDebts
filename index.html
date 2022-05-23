@@ -45,7 +45,13 @@
                 <h2 class="color-dark">Minhas transações</h2>
 
                 <ul class="list-items">
-                     
+                     <li class="item">
+                         <span class="date">09 de Maio de 2022</span>
+                        <div class="items-data">
+                            <span class="color-dark">Salário</span>
+                            <span class="color-green">10,00</span>
+                        </div>
+                     </li>
                 </ul> <!--LIST-ITEM-->
             </section> <!--LIST-->
 
@@ -64,6 +70,10 @@
                         <input type="number" name="item" class="item color-dark" id="item-value" placeholder="Use o sinal - para informar suas despesas" autocomplete="off" required>
                     </div>
 
+                    <div>
+                        <label for="item-date" class="sr-only">Informe a data</label>
+                        <input type="date" name="itemDate" id="item-date" min="2022-05-20" max="">
+                    </div>
 
                     <div class="buttons">
                         <button type="reset" id="btnReset">Limpar campos</button>
