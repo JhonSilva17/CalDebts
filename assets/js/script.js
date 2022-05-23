@@ -18,6 +18,50 @@ function retUltimoDia(year, month){
     return ultimoDia;
 }
 
+// Função que formata a data no padrão Brasil
+function formatDate(str, separator) {
+    const strToArray = str.split(separator)
+    switch (strToArray[1]) {
+        case '01':
+            strToArray[1] = 'Janerio'
+            break;
+        case '02':
+            strToArray[1] = 'Fevereiro'
+            break;
+        case '03':
+            strToArray[1] = 'Março'
+            break;
+        case '04':
+            strToArray[1] = 'Abril'
+            break;
+        case '05':
+            strToArray[1] = 'Maio'
+            break;
+        case '06':
+            strToArray[1] = 'Junho'
+            break;
+        case '07':
+            strToArray[1] = 'Julho'
+            break;
+        case '08':
+            strToArray[1] = 'Agosto'
+            break;
+        case '09':
+            strToArray[1] = 'Setembro'
+            break;
+        case '10':
+            strToArray[1] = 'Outubro'
+            break;
+        case '11':
+            strToArray[1] = 'Novembro'
+            break;
+        case '12':
+            strToArray[1] = 'Dezembro'
+            break;
+    }
+    return `${strToArray[2]} de ${strToArray[1]} de ${strToArray[0]}`
+}
+
 function date() {
     const date = new Date()
     const ano = date.getFullYear()
@@ -27,6 +71,7 @@ function date() {
     const month = date.getMonth() < 10 ? `0${date.getMonth() + 1}` : date.getMonth()
     const maxDate = `${ano}-${month}-${retUltimoDia(ano, month)}`
 
+    // Cria e adiciona valores aos atributos do input date no HTML
     const attrMinDate = itemDate.setAttribute('min', `${ano}-${month}-01`)
     const attrMaxDate = itemDate.setAttribute('max', maxDate)
     const attrValue = itemDate.setAttribute('value', `${ano}-${month}-${day}`)
@@ -42,6 +87,13 @@ function atualizaTela() {
         let li = document.createElement('li')
         li.classList.add('item')
         ulOuput.appendChild(li)
+
+        // Criando o span da data
+        let spanDate = document.createElement('span')
+        spanDate.classList.add('date')
+        let contentSpanDate = document.createTextNode(`data da transação: ${formatDate(data[index], '-')}`)
+        spanDate.appendChild(contentSpanDate)
+        li.appendChild(spanDate)
 
         // Criando a div 
         let div = document.createElement('div')
@@ -69,6 +121,7 @@ function atualizaTela() {
                 ulOuput.removeChild(li)
                 remove(transactions, item) // Removendo os itens clicados da lista 
                 remove(values, values[index]) // Removendo os itens clicados da lista 
+                remove(data, data[index])
                 saveStorage('Transactions', transactions) // Salvando as remoções no localStorage
             }
             cardsValues()
@@ -137,6 +190,7 @@ buttonSend.addEventListener('click', (event)=> {
     } else {
         transactions.push(itemName.value) // Adicionando ao array transactions, o valor digitado no input 'itemName'
         values.push(Number(itemValue.value)) // Adicionando ao array values, o valor digitado no input 'itemValue'
+        data.push(itemDate.value)
         cardsValues() // Quando o botão é clicado a função é chamado
         atualizaTela() // Quando o botão é clicado a função é chamado
         saveStorage() // Quando o botão é clicado a função é chamado
