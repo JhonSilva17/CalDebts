@@ -1,6 +1,6 @@
 :root {
     font-size: 62.5%;
-    --hue: 210;
+    --hue: 240;
     --color-dark: hsl(var(--hue), 0%, 20%);
     --bg-cards: hsl(var(--hue), 100%, 96%);
     --cards-shadow: hsl(var(--hue), 20%, 92%); 
@@ -12,6 +12,7 @@
     --border-input: hsl(var(--hue), 100%, 90%);
     --border-input-focus: hsl(var(--hue), 100%, 70%);
     --bg-body: hsl(var(--hue), 100%, 98%);
+    --color-date: hsl(var(--hue), 54%, 67%)
 } 
 
 * {
@@ -178,6 +179,7 @@ h2 {
 
 #list .list-items .item .date {
     font-size: 1.2rem;
+    color: var(--color-date);
 }
 
 #list .list-items .alert {
