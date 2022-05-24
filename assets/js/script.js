@@ -11,6 +11,7 @@ let data = JSON.parse(localStorage.getItem('date')) || []
 const profit = document.querySelector('#ganhos')
 const expense = document.querySelector('#despesas')
 const total = document.querySelector('#total')
+const totalTransactions = document.querySelector("#totalTransactions")
 
 // Função que recebe o ano e o mês e retorno o último dia do mês especificado
 function retUltimoDia(year, month){
@@ -127,6 +128,8 @@ function atualizaTela() {
             cardsValues()
         })
     })
+
+    totalTransactions.innerHTML = values.length
 }
 atualizaTela() // Sempre que a página recarrega, a função é ativada
 
@@ -199,5 +202,6 @@ buttonSend.addEventListener('click', (event)=> {
         itemName.value = ''
         itemValue.value = ''
         itemDate.value = ''
+        totalTransactions.innerHTML = values.length
     }
 })

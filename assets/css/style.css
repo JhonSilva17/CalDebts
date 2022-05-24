@@ -97,6 +97,22 @@ h2 {
     color: #FF4F4F;
 }
 
+.totalTransactions {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-date);
+}
+
+.flex {
+    display: flex;
+}
+.flex.flex-center {
+    align-items: center;
+}
+.flex.flex-between {
+    justify-content: space-between;
+}
+
 /* PAINEL */
 #painel h1 {
     font: normal bold 4.2rem/1 'Montserrat', arial;
