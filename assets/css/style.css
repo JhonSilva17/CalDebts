@@ -105,6 +105,7 @@ h2 {
 
 .flex {
     display: flex;
+    flex-wrap: wrap;
 }
 .flex.flex-center {
     align-items: center;
