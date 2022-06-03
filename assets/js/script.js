@@ -194,6 +194,7 @@ buttonSend.addEventListener('click', (event)=> {
         transactions.push(itemName.value) // Adicionando ao array transactions, o valor digitado no input 'itemName'
         values.push(Number(itemValue.value)) // Adicionando ao array values, o valor digitado no input 'itemValue'
         data.push(itemDate.value)
+        
         cardsValues() // Quando o botão é clicado a função é chamado
         atualizaTela() // Quando o botão é clicado a função é chamado
         saveStorage() // Quando o botão é clicado a função é chamado
@@ -201,7 +202,6 @@ buttonSend.addEventListener('click', (event)=> {
         // Ao atualizar a tela com os dados, os inputs são limpos
         itemName.value = ''
         itemValue.value = ''
-        itemDate.value = ''
         totalTransactions.innerHTML = values.length
     }
 })
